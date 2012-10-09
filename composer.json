@@ -1,0 +1,13 @@
+{
+    "require": {
+		"encore/db": "1.*",
+		"encore/parser": "1.*"
+    },
+	
+	"repositories": [
+        {
+			"type": "composer",
+			"url": "http://packages.encorephp.com/"
+		}
+	]
+}

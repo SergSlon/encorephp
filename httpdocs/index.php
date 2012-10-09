@@ -1,0 +1,53 @@
+<?php
+
+// Where is your application?
+$app_path = '../app';
+
+// Where is EncorePHP?
+$sys_path = '../encorephp';
+
+// Where is all the vendor stuff?
+$vendor_path = '../vendor';
+
+// Set the environment constants
+define('DEVELOPMENT', 'development');
+define('STAGING', 'staging');
+define('PRODUCTION', 'production');
+
+define('ENVIRONMENT', isset($_SERVER['ENCOREPHP_ENV']) ? $_SERVER['ENCOREPHP_ENV'] : DEVELOPMENT);
+
+// Set the error reporting level and settings for the environment
+error_reporting(E_ALL);
+
+switch (ENVIRONMENT)
+{
+	case DEVELOPMENT:
+		ini_set('display_errors', TRUE);
+	break;
+
+	case STAGING:
+	case PRODUCTION:
+		ini_set('display_errors', FALSE);
+	break;
+
+	default:
+		exit('The environment is not set correctly.');
+}
+
+// Are the paths set correctly?
+is_dir($app_path) OR exit('The app path is not set correctly.');
+is_dir($sys_path) OR exit('The system path is not set correctly.');
+
+// Define the paths
+define('SYS_PATH', realpath($sys_path) . '/');
+define('BASE_PATH', __DIR__ . '/');
+define('APP_PATH', substr($app_path, 0, -1) == '/' ? $app_path : $app_path . '/');
+define('VENDOR_PATH', substr($vendor_path, 0, -1) == '/' ? $vendor_path : $vendor_path . '/');
+
+// Include the Composer autoloader (if its there)
+if (file_exists(VENDOR_PATH . 'autoload.php'))
+{
+	require_once(VENDOR_PATH . 'autoload.php');
+}
+
+require_once(SYS_PATH . 'Bootstrap.php');

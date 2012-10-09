@@ -1,0 +1,20 @@
+
+/* Mobile */
+@media (max-width: 480px) {
+	h1 {
+		font-size: 35px !important;
+	}
+}
+
+/* Tablet */
+@media (max-width: 768px) and (min-width: 480px) {
+	h1 {
+		font-size: 50px !important;
+	}
+}
+/* Desktop */
+@media (min-width: 768px) {
+	h1 {
+		font-size: 60px !important;
+	}
+}

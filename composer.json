@@ -1,7 +1,6 @@
 {
     "require": {
-		"encore/db": "1.*",
-		"encore/parser": "1.*"
+		"encore/db": "1.*"
     },
 	
 	"repositories": [

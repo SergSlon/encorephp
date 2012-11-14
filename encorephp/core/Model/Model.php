@@ -2,8 +2,4 @@
 
 class Model
 {
-	public function init()
-	{
-		echo 'sdffsdf';
-	}
 }

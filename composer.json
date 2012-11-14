@@ -1,6 +1,6 @@
 {
     "require": {
-		"encore/db": "1.*"
+		"encore/db": "dev-master"
     },
 	
 	"repositories": [
